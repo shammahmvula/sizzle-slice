@@ -31,12 +31,14 @@ const BurgerCombos = () => {
               key={item.name}
               className="flex flex-col bg-background rounded-xl overflow-hidden border border-border shadow-lg"
             >
-              <img 
-                src={item.image}
-                alt={item.name}
-                className="h-64 w-full object-cover"
-                loading="lazy"
-              />
+              <div className="h-64 w-full bg-muted/30 flex items-center justify-center p-4">
+                <img 
+                  src={item.image}
+                  alt={item.name}
+                  className="h-full w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
               <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-foreground text-xl font-bold mb-2">{item.name}</h3>
                 <p className="text-muted-foreground text-sm mb-4">{item.description}</p>
