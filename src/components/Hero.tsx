@@ -1,7 +1,6 @@
 import { Bike, UtensilsCrossed, Leaf, Flame, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import heroPizza from "@/assets/hero-pizza.jpg";
-import logo from "@/assets/logo.png";
 
 const FloatingParticle = ({ delay, size, left, duration }: { delay: number; size: number; left: string; duration: number }) => (
   <div
@@ -107,20 +106,6 @@ const Hero = () => {
               Hot
             </span>
           </div>
-        </div>
-
-        {/* Animated Logo */}
-        <div 
-          className={`transition-all duration-1000 ${
-            isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
-          }`}
-          style={{ transitionDelay: '400ms' }}
-        >
-          <img 
-            src={logo} 
-            alt="Sizzle N Slice" 
-            className="h-32 md:h-44 w-auto drop-shadow-2xl hover:scale-105 transition-transform duration-300"
-          />
         </div>
 
         {/* Animated Headline with Gradient Shimmer */}
