@@ -53,7 +53,7 @@ const BurgerCombos = () => {
           ))}
         </div>
 
-        <p className="mt-8 text-muted-foreground text-sm italic text-center">
+        <p className="mt-8 text-muted-foreground text-xs italic text-center">
           Chicken Burgers are available in one of the following flavours: Chilli, Mayo or BBQ sauce. Beef Burgers come standard with Relish & Mayo.
         </p>
       </div>
