@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
         <div>
           <div className="mb-6">
-            <img src={logo} alt="Sizzle N Slice" className="h-16 w-auto" />
+            <img src={logo} alt="Sizzle N Slice" className="h-16 w-auto" loading="lazy" decoding="async" />
           </div>
           <p className="text-muted-foreground text-sm mb-6">
             At Sizzle 'n Slice, we believe great food should be simple, satisfying, and made with heart. Our kitchen is all about flavour that hits the spot - every time.

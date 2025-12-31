@@ -61,6 +61,8 @@ const MenuSection = () => {
                 alt={`${pizza.name} pizza`}
                 className="menu-card-image object-cover"
                 loading="lazy"
+                decoding="async"
+                fetchPriority={pizza.badge === "Best Seller" ? "high" : "low"}
               />
               {pizza.badge && (
                 <div className={`absolute top-3 right-3 ${pizza.badgeColor} text-xs font-bold px-2 py-1 rounded`}>

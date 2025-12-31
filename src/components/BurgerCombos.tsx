@@ -37,6 +37,7 @@ const BurgerCombos = () => {
                   alt={item.name}
                   className="h-full w-full object-contain drop-shadow-md"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="p-4 flex flex-col">
