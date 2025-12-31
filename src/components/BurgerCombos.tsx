@@ -25,25 +25,25 @@ const BurgerCombos = () => {
           Burgers and Footlongs
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
           {items.map((item) => (
             <article 
               key={item.name}
-              className="flex flex-col bg-background rounded-2xl overflow-hidden border border-border shadow-xl"
+              className="flex flex-col bg-background rounded-xl overflow-hidden border border-border shadow-lg"
             >
-              <div className="aspect-square w-full bg-gradient-to-b from-muted/20 to-muted/40 flex items-center justify-center p-6">
+              <div className="aspect-square w-full bg-gradient-to-b from-muted/20 to-muted/40 flex items-center justify-center p-4">
                 <img 
                   src={item.image}
                   alt={item.name}
-                  className="h-full w-full object-contain drop-shadow-lg"
+                  className="h-full w-full object-contain drop-shadow-md"
                   loading="lazy"
                 />
               </div>
-              <div className="p-6 flex flex-col">
-                <h3 className="text-foreground text-2xl font-bold mb-2">{item.name}</h3>
-                <p className="text-muted-foreground text-sm mb-4">{item.description}</p>
+              <div className="p-4 flex flex-col">
+                <h3 className="text-foreground text-lg font-bold mb-1">{item.name}</h3>
+                <p className="text-muted-foreground text-xs mb-3">{item.description}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-foreground text-2xl font-black">{item.price}</span>
+                  <span className="text-foreground text-lg font-black">{item.price}</span>
                   <button className="add-button" aria-label={`View ${item.name}`}>
                     <Plus className="size-4" />
                   </button>
