@@ -54,9 +54,12 @@ const Testimonials = () => {
             <RatingStars rating={testimonial.rating} />
             <p className="text-muted-foreground italic mb-6">"{testimonial.text}"</p>
             <div className="flex items-center gap-3">
-              <div 
-                className="size-10 rounded-full bg-muted bg-cover bg-center"
-                style={{ backgroundImage: `url("${testimonial.avatar}")` }}
+              <img 
+                src={testimonial.avatar}
+                alt={testimonial.name}
+                className="size-10 rounded-full bg-muted object-cover"
+                loading="lazy"
+                decoding="async"
               />
               <div>
                 <p className="text-foreground font-bold text-sm">{testimonial.name}</p>

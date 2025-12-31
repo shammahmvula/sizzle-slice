@@ -83,6 +83,13 @@
 
   body {
     @apply bg-background text-foreground font-display antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  img, video {
+    content-visibility: auto;
   }
 }
 

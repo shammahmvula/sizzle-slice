@@ -40,15 +40,15 @@ const Hero = () => {
     <header className="relative w-full min-h-[700px] md:min-h-[750px] flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-transform duration-[2s] ease-out"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-transform duration-[2s] ease-out will-change-transform"
         style={{
           backgroundImage: `linear-gradient(rgba(24, 17, 17, 0.3) 0%, rgba(24, 17, 17, 0.95) 100%), url("${heroPizza}")`,
           transform: isLoaded ? 'scale(1)' : 'scale(1.1)',
         }}
       />
 
-      {/* Floating Particles */}
-      <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
+      {/* Floating Particles - Only show on larger screens for performance */}
+      <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none hidden md:block">
         <FloatingParticle delay={0} size={8} left="10%" duration={4} />
         <FloatingParticle delay={1} size={12} left="25%" duration={5} />
         <FloatingParticle delay={0.5} size={6} left="40%" duration={3.5} />
@@ -63,9 +63,9 @@ const Hero = () => {
         <SparkElement delay={2} left="20%" top="70%" />
       </div>
 
-      {/* Decorative Ring */}
+      {/* Decorative Ring - Only show on larger screens */}
       <div 
-        className="absolute w-[600px] h-[600px] md:w-[800px] md:h-[800px] border border-primary/10 rounded-full animate-rotate-slow pointer-events-none"
+        className="absolute w-[600px] h-[600px] md:w-[800px] md:h-[800px] border border-primary/10 rounded-full animate-rotate-slow pointer-events-none hidden md:block will-change-transform"
         style={{
           left: '50%',
           top: '50%',
@@ -73,7 +73,7 @@ const Hero = () => {
         }}
       />
       <div 
-        className="absolute w-[400px] h-[400px] md:w-[600px] md:h-[600px] border border-secondary/10 rounded-full pointer-events-none"
+        className="absolute w-[400px] h-[400px] md:w-[600px] md:h-[600px] border border-secondary/10 rounded-full pointer-events-none hidden md:block will-change-transform"
         style={{
           left: '50%',
           top: '50%',
