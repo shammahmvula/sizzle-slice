@@ -4,27 +4,15 @@ import footlongsImage from "@/assets/footlongs.png";
 
 const items = [
   {
-    name: "Double Burger Combo",
-    description: "Double Fillet/Patty, Double Cheese.",
-    price: "R130",
+    name: "Burger Combos",
+    description: "Classic, Double & Cheese burgers available in beef or chicken.",
+    price: "From R60",
     image: burgersImage
   },
   {
-    name: "Cheese Burger Combo",
-    description: "Topped with melted cheese.",
-    price: "R105",
-    image: burgersImage
-  },
-  {
-    name: "Mexicana Footlong",
-    description: "Mince, Green Pepper, Onion, Garlic & Chilli Sauce.",
-    price: "R69",
-    image: footlongsImage
-  },
-  {
-    name: "Russian Footlong",
-    description: "Russian, Onion, Mushroom & Green Pepper.",
-    price: "R60",
+    name: "Footlongs",
+    description: "Our secret tomato base, melted cheese and garlic butter finish.",
+    price: "From R60",
     image: footlongsImage
   }
 ];
@@ -37,7 +25,7 @@ const BurgerCombos = () => {
           Burgers and Footlongs
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {items.map((item) => (
             <article 
               key={item.name}
@@ -46,15 +34,15 @@ const BurgerCombos = () => {
               <img 
                 src={item.image}
                 alt={item.name}
-                className="h-48 w-full object-cover"
+                className="h-64 w-full object-cover"
                 loading="lazy"
               />
-              <div className="p-5 flex flex-col flex-grow">
-                <h3 className="text-foreground text-lg font-bold mb-1">{item.name}</h3>
-                <p className="text-muted-foreground text-xs mb-3">{item.description}</p>
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-foreground text-xl font-bold mb-2">{item.name}</h3>
+                <p className="text-muted-foreground text-sm mb-4">{item.description}</p>
                 <div className="flex items-center justify-between mt-auto">
-                  <span className="text-foreground text-xl font-black">{item.price}</span>
-                  <button className="add-button" aria-label={`Add ${item.name} to cart`}>
+                  <span className="text-foreground text-2xl font-black">{item.price}</span>
+                  <button className="add-button" aria-label={`View ${item.name}`}>
                     <Plus className="size-4" />
                   </button>
                 </div>
