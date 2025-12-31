@@ -12,19 +12,22 @@ const pizzas = [
     price: "R125.00",
     image: pizzaMexicana,
     badge: "Best Seller",
-    badgeColor: "bg-secondary text-secondary-foreground"
+    badgeColor: "bg-secondary text-secondary-foreground",
+    buttonClass: "add-button"
   },
   {
     name: "Hawaiian",
     description: "Ham & Pineapple.",
     price: "R110.00",
-    image: pizzaHawaiian
+    image: pizzaHawaiian,
+    buttonClass: "add-button"
   },
   {
     name: "Vegetarian",
     description: "Mushrooms, green pepper, onion, olives & garlic.",
     price: "R110.00",
-    image: pizzaVegetarian
+    image: pizzaVegetarian,
+    buttonClass: "add-button-vegetarian"
   },
   {
     name: "Meat Master",
@@ -32,7 +35,8 @@ const pizzas = [
     price: "R135.00",
     image: pizzaMeatmaster,
     badge: "New",
-    badgeColor: "bg-primary text-primary-foreground"
+    badgeColor: "bg-primary text-primary-foreground",
+    buttonClass: "add-button-meatmaster"
   }
 ];
 
@@ -75,7 +79,7 @@ const MenuSection = () => {
               <p className="text-muted-foreground text-xs mb-3">{pizza.description}</p>
               <div className="mt-auto flex items-center justify-between">
                 <span className="text-foreground font-bold text-lg">{pizza.price}</span>
-                <button className="add-button" aria-label={`Add ${pizza.name} to cart`}>
+                <button className={pizza.buttonClass} aria-label={`Add ${pizza.name} to cart`}>
                   <Plus className="size-4" />
                 </button>
               </div>

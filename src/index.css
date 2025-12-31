@@ -118,6 +118,20 @@
     @apply size-8 rounded-full bg-foreground/10 hover:bg-primary text-foreground flex items-center justify-center transition-colors;
   }
 
+  .add-button-vegetarian {
+    @apply size-8 rounded-full bg-foreground/10 text-foreground flex items-center justify-center transition-colors;
+  }
+  .add-button-vegetarian:hover {
+    background: hsl(120 70% 40%);
+  }
+
+  .add-button-meatmaster {
+    @apply size-8 rounded-full bg-foreground/10 text-foreground flex items-center justify-center transition-colors;
+  }
+  .add-button-meatmaster:hover {
+    background: linear-gradient(90deg, hsl(45 97% 53%) 50%, hsl(0 88% 50%) 50%);
+  }
+
   .social-link {
     @apply size-8 rounded bg-accent flex items-center justify-center text-foreground hover:bg-primary transition-colors;
   }
