@@ -53,11 +53,9 @@ const BurgerCombos = () => {
           ))}
         </div>
 
-        <div className="mt-8 p-4 rounded-lg bg-background/50 border border-border text-center">
-          <p className="text-muted-foreground text-sm italic">
-            Chicken Burgers are available in one of the following flavours: Chilli, Mayo or BBQ sauce. Beef Burgers come standard with Relish & Mayo.
-          </p>
-        </div>
+        <p className="mt-8 text-muted-foreground text-sm italic text-center">
+          Chicken Burgers are available in one of the following flavours: Chilli, Mayo or BBQ sauce. Beef Burgers come standard with Relish & Mayo.
+        </p>
       </div>
     </section>
   );
