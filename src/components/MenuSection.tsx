@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import pizzaMexicana from "@/assets/pizza-mexicana.png";
 import pizzaHawaiian from "@/assets/pizza-hawaiian.png";
 import pizzaVegetarian from "@/assets/pizza-vegetarian.png";
-import pizzaRegina from "@/assets/pizza-regina.jpg";
+import pizzaMeatmaster from "@/assets/pizza-meatmaster.png";
 
 const pizzas = [
   {
@@ -27,10 +27,10 @@ const pizzas = [
     image: pizzaVegetarian
   },
   {
-    name: "Regina",
-    description: "Ham & mushroom.",
-    price: "R110.00",
-    image: pizzaRegina,
+    name: "Meat Master",
+    description: "Ham, bacon, pepperoni & Russian sausage.",
+    price: "R135.00",
+    image: pizzaMeatmaster,
     badge: "New",
     badgeColor: "bg-primary text-primary-foreground"
   }
