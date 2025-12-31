@@ -1,16 +1,16 @@
-import { Pizza, MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
     <footer id="contact" className="bg-muted border-t border-border pt-16 pb-8 px-4 md:px-10">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
         <div>
-          <div className="flex items-center gap-2 mb-6">
-            <Pizza className="text-primary size-6" />
-            <span className="text-foreground text-lg font-black tracking-tight">Sizzle N Slice</span>
+          <div className="mb-6">
+            <img src={logo} alt="Sizzle N Slice" className="h-16 w-auto" />
           </div>
           <p className="text-muted-foreground text-sm mb-6">
-            Serving the hottest slices and the tastiest bites since 2010. We are committed to quality ingredients and speedy service.
+            At Sizzle 'n Slice, we believe great food should be simple, satisfying, and made with heart. Our kitchen is all about flavour that hits the spot - every time.
           </p>
           <div className="flex gap-4">
             <a href="#" className="social-link">

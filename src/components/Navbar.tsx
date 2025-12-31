@@ -1,6 +1,7 @@
-import { ShoppingBag, Pizza, Menu, X } from "lucide-react";
+import { ShoppingBag, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,13 +11,8 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10 py-3 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="size-8 text-primary flex items-center justify-center">
-            <Pizza className="size-7" />
-          </div>
-          <h1 className="text-foreground text-xl md:text-2xl font-black tracking-tight">
-            Sizzle N Slice
-          </h1>
+        <Link to="/" className="flex items-center">
+          <img src={logo} alt="Sizzle N Slice" className="h-12 md:h-14 w-auto" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
