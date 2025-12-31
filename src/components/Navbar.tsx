@@ -1,7 +1,7 @@
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/sizzlenslice-logo.png";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
