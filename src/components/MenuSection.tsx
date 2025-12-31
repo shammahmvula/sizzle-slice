@@ -1,8 +1,8 @@
 import { Plus, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import pizzaMexicana from "@/assets/pizza-mexicana.jpg";
-import pizzaHawaiian from "@/assets/pizza-hawaiian.jpg";
-import pizzaVegetarian from "@/assets/pizza-vegetarian.jpg";
+import pizzaMexicana from "@/assets/pizza-mexicana.png";
+import pizzaHawaiian from "@/assets/pizza-hawaiian.png";
+import pizzaVegetarian from "@/assets/pizza-vegetarian.png";
 import pizzaRegina from "@/assets/pizza-regina.jpg";
 
 const pizzas = [
