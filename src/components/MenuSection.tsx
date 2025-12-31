@@ -1,4 +1,5 @@
 import { Plus, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import pizzaMexicana from "@/assets/pizza-mexicana.jpg";
 import pizzaHawaiian from "@/assets/pizza-hawaiian.jpg";
 import pizzaVegetarian from "@/assets/pizza-vegetarian.jpg";
@@ -43,12 +44,12 @@ const MenuSection = () => {
           <h3 className="section-label mb-2">Our Menu</h3>
           <h2 className="section-title">Fan Favorites</h2>
         </div>
-        <a 
-          href="#" 
+        <Link 
+          to="/menu" 
           className="hidden md:flex items-center gap-1 text-secondary hover:text-secondary/80 font-medium transition-colors"
         >
           View Full Menu <ArrowRight className="size-4" />
-        </a>
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -82,9 +83,9 @@ const MenuSection = () => {
       </div>
 
       <div className="md:hidden mt-6 text-center">
-        <a href="#" className="inline-flex items-center gap-1 text-secondary font-medium">
+        <Link to="/menu" className="inline-flex items-center gap-1 text-secondary font-medium">
           View Full Menu <ArrowRight className="size-4" />
-        </a>
+        </Link>
       </div>
     </section>
   );
