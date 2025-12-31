@@ -1,5 +1,5 @@
 import { Bike, UtensilsCrossed, Leaf, Flame, Sparkles } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import heroPizza from "@/assets/hero-pizza.jpg";
 
 const FloatingParticle = ({ delay, size, left, duration }: { delay: number; size: number; left: string; duration: number }) => (
@@ -30,11 +30,7 @@ const SparkElement = ({ delay, left, top }: { delay: number; left: string; top: 
 );
 
 const Hero = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
+  const [isLoaded, setIsLoaded] = useState(true);
 
   return (
     <header className="relative w-full min-h-[700px] md:min-h-[750px] flex items-center justify-center overflow-hidden">
