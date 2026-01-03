@@ -146,6 +146,21 @@ export default {
           "0%, 100%": { opacity: "0", transform: "translateY(0) scaleY(0.8)" },
           "50%": { opacity: "1", transform: "translateY(-20px) scaleY(1)" },
         },
+        "flicker": {
+          "0%, 100%": { opacity: "0.6", transform: "scaleY(1)" },
+          "25%": { opacity: "0.8", transform: "scaleY(1.02)" },
+          "50%": { opacity: "0.5", transform: "scaleY(0.98)" },
+          "75%": { opacity: "0.7", transform: "scaleY(1.01)" },
+        },
+        "ember": {
+          "0%": { opacity: "0", transform: "translateY(0) scale(0.5)" },
+          "20%": { opacity: "0.8" },
+          "100%": { opacity: "0", transform: "translateY(-300px) scale(0)" },
+        },
+        "heatwave": {
+          "0%, 100%": { opacity: "0.3", transform: "scaleX(1)" },
+          "50%": { opacity: "0.6", transform: "scaleX(1.1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
