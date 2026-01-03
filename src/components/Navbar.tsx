@@ -16,7 +16,7 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link to="/menu" className="nav-link">Menu</Link>
+          <a href="#menu" className="nav-link">Menu</a>
           {isHomePage ? (
             <>
               <a href="#rewards" className="nav-link">Rewards</a>
@@ -48,7 +48,7 @@ const Navbar = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-background border-t border-border px-4 py-4 animate-fade-in">
           <div className="flex flex-col gap-4">
-            <Link to="/menu" className="nav-link text-lg" onClick={() => setMobileMenuOpen(false)}>Menu</Link>
+            <a href="#menu" className="nav-link text-lg" onClick={() => setMobileMenuOpen(false)}>Menu</a>
             {isHomePage ? (
               <>
                 <a href="#rewards" className="nav-link text-lg" onClick={() => setMobileMenuOpen(false)}>Rewards</a>
