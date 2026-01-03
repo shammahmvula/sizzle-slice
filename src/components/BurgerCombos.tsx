@@ -1,4 +1,4 @@
-import { Plus, Flame, Beef, Sandwich } from "lucide-react";
+import { Plus } from "lucide-react";
 import burgersImage from "@/assets/burgers.png";
 import footlongsImage from "@/assets/footlongs.png";
 
@@ -20,28 +20,57 @@ const items = [
 const BurgerCombos = () => {
   return (
     <section className="py-10 px-4 md:px-10 bg-card border-y border-border relative overflow-hidden">
-      {/* Left decorative elements */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 pointer-events-none hidden lg:flex flex-col justify-center items-center gap-8 opacity-20">
-        <Beef className="size-16 text-primary rotate-[-15deg]" />
-        <Flame className="size-12 text-secondary rotate-[10deg]" />
-        <Sandwich className="size-14 text-primary rotate-[-8deg]" />
+      {/* Left diagonal stripes */}
+      <div className="absolute left-0 top-0 bottom-0 w-40 md:w-64 pointer-events-none hidden lg:block overflow-hidden">
+        <div className="absolute inset-0 flex flex-col gap-4 -skew-x-12 translate-x-[-20%]">
+          <div className="h-8 bg-primary/20 w-full" />
+          <div className="h-4 bg-secondary/30 w-full" />
+          <div className="h-12 bg-primary/10 w-full" />
+          <div className="h-6 bg-secondary/20 w-full" />
+          <div className="h-3 bg-primary/25 w-full" />
+          <div className="h-10 bg-secondary/15 w-full" />
+          <div className="h-5 bg-primary/20 w-full" />
+          <div className="h-8 bg-secondary/25 w-full" />
+          <div className="h-4 bg-primary/15 w-full" />
+          <div className="h-12 bg-secondary/20 w-full" />
+          <div className="h-6 bg-primary/30 w-full" />
+          <div className="h-3 bg-secondary/20 w-full" />
+        </div>
+        {/* Glowing accent line */}
+        <div className="absolute right-8 top-1/4 bottom-1/4 w-1 bg-gradient-to-b from-transparent via-primary to-transparent opacity-60 blur-sm" />
       </div>
       
-      {/* Left gradient fade */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-card via-card/80 to-transparent pointer-events-none hidden lg:block" />
+      {/* Left fade overlay */}
+      <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-r from-transparent via-transparent to-card pointer-events-none hidden lg:block" />
       
-      {/* Right decorative elements */}
-      <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 pointer-events-none hidden lg:flex flex-col justify-center items-center gap-8 opacity-20">
-        <Sandwich className="size-14 text-secondary rotate-[15deg]" />
-        <Beef className="size-16 text-primary rotate-[-10deg]" />
-        <Flame className="size-12 text-secondary rotate-[8deg]" />
+      {/* Right diagonal stripes */}
+      <div className="absolute right-0 top-0 bottom-0 w-40 md:w-64 pointer-events-none hidden lg:block overflow-hidden">
+        <div className="absolute inset-0 flex flex-col gap-4 skew-x-12 translate-x-[20%]">
+          <div className="h-6 bg-secondary/25 w-full" />
+          <div className="h-10 bg-primary/15 w-full" />
+          <div className="h-4 bg-secondary/20 w-full" />
+          <div className="h-8 bg-primary/25 w-full" />
+          <div className="h-3 bg-secondary/30 w-full" />
+          <div className="h-12 bg-primary/10 w-full" />
+          <div className="h-5 bg-secondary/20 w-full" />
+          <div className="h-8 bg-primary/20 w-full" />
+          <div className="h-6 bg-secondary/15 w-full" />
+          <div className="h-4 bg-primary/25 w-full" />
+          <div className="h-10 bg-secondary/20 w-full" />
+          <div className="h-3 bg-primary/30 w-full" />
+        </div>
+        {/* Glowing accent line */}
+        <div className="absolute left-8 top-1/4 bottom-1/4 w-1 bg-gradient-to-b from-transparent via-secondary to-transparent opacity-60 blur-sm" />
       </div>
       
-      {/* Right gradient fade */}
-      <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-card via-card/80 to-transparent pointer-events-none hidden lg:block" />
+      {/* Right fade overlay */}
+      <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-transparent via-transparent to-card pointer-events-none hidden lg:block" />
 
-      {/* Subtle dotted pattern overlay */}
-      <div className="absolute inset-0 bg-dotted opacity-30 pointer-events-none" />
+      {/* Floating accent circles */}
+      <div className="absolute left-16 top-1/3 size-6 rounded-full bg-primary/30 blur-md animate-pulse hidden lg:block" />
+      <div className="absolute left-24 bottom-1/4 size-4 rounded-full bg-secondary/40 blur-sm animate-pulse hidden lg:block" style={{ animationDelay: '0.5s' }} />
+      <div className="absolute right-16 top-1/4 size-5 rounded-full bg-secondary/30 blur-md animate-pulse hidden lg:block" style={{ animationDelay: '1s' }} />
+      <div className="absolute right-20 bottom-1/3 size-4 rounded-full bg-primary/40 blur-sm animate-pulse hidden lg:block" style={{ animationDelay: '0.7s' }} />
 
       <div className="max-w-[1200px] mx-auto relative z-10">
         <h2 className="text-foreground text-2xl md:text-3xl font-bold mb-8 text-center">
@@ -52,7 +81,7 @@ const BurgerCombos = () => {
           {items.map((item) => (
             <article 
               key={item.name}
-              className="flex flex-col bg-background rounded-xl overflow-hidden border border-border shadow-lg hover:shadow-xl hover:shadow-primary/10 transition-shadow"
+              className="flex flex-col bg-background rounded-xl overflow-hidden border border-border shadow-lg hover:shadow-xl hover:shadow-primary/10 transition-all hover:scale-[1.02]"
             >
               <div className="aspect-square w-full bg-gradient-to-b from-muted/20 to-muted/40 flex items-center justify-center p-4">
                 <img 
