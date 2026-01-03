@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import MenuSection from "@/components/MenuSection";
+import FanFavorites from "@/components/FanFavorites";
 import BurgerCombos from "@/components/BurgerCombos";
+import MenuSection from "@/components/MenuSection";
 import OrderCTA from "@/components/OrderCTA";
 import Testimonials from "@/components/Testimonials";
 import LocationSection from "@/components/LocationSection";
@@ -12,8 +13,9 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
       <Hero />
-      <MenuSection />
+      <FanFavorites />
       <BurgerCombos />
+      <MenuSection />
       <OrderCTA />
       <Testimonials />
       <LocationSection />
