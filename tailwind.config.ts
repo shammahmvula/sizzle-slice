@@ -161,6 +161,15 @@ export default {
           "0%, 100%": { opacity: "0.3", transform: "scaleX(1)" },
           "50%": { opacity: "0.6", transform: "scaleX(1.1)" },
         },
+        "cheeseDrip": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(3px)" },
+        },
+        "sizzle": {
+          "0%": { opacity: "0", transform: "scale(0.5)" },
+          "50%": { opacity: "0.8", transform: "scale(1.2)" },
+          "100%": { opacity: "0", transform: "scale(0.8) translateY(-10px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
