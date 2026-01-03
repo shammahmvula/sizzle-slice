@@ -142,6 +142,10 @@ export default {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
+        "steam": {
+          "0%, 100%": { opacity: "0", transform: "translateY(0) scaleY(0.8)" },
+          "50%": { opacity: "1", transform: "translateY(-20px) scaleY(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
