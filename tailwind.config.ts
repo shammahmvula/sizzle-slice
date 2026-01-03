@@ -170,6 +170,10 @@ export default {
           "50%": { opacity: "0.8", transform: "scale(1.2)" },
           "100%": { opacity: "0", transform: "scale(0.8) translateY(-10px)" },
         },
+        "melt": {
+          "0%, 100%": { transform: "scaleY(1)", opacity: "0.5" },
+          "50%": { transform: "scaleY(1.3)", opacity: "0.7" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
