@@ -174,6 +174,16 @@ export default {
           "0%, 100%": { transform: "scaleY(1)", opacity: "0.5" },
           "50%": { transform: "scaleY(1.3)", opacity: "0.7" },
         },
+        "smokeRise": {
+          "0%": { opacity: "0", transform: "translateY(0) scaleX(1)" },
+          "30%": { opacity: "0.4" },
+          "100%": { opacity: "0", transform: "translateY(-100px) scaleX(1.5)" },
+        },
+        "emberFloat": {
+          "0%": { opacity: "0", transform: "translateY(0) scale(1)" },
+          "20%": { opacity: "1" },
+          "100%": { opacity: "0", transform: "translateY(-150px) scale(0.3)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
