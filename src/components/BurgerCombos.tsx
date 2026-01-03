@@ -17,122 +17,144 @@ const items = [
   }
 ];
 
-// Ingredient layer stripes - burger inspired
-const IngredientLayers = ({ side }: { side: 'left' | 'right' }) => (
-  <div className={`absolute ${side}-0 top-0 bottom-0 w-8 md:w-12 pointer-events-none hidden lg:flex flex-col justify-center`}>
-    {/* Bun top */}
-    <div className="h-8 bg-gradient-to-b from-amber-700/40 to-amber-600/30 rounded-r-full" style={{ marginLeft: side === 'left' ? 0 : 'auto', marginRight: side === 'right' ? 0 : 'auto' }} />
-    {/* Lettuce */}
-    <div className="h-3 bg-gradient-to-b from-green-600/40 to-green-500/30 -mt-1" />
-    {/* Tomato */}
-    <div className="h-4 bg-gradient-to-b from-red-600/50 to-red-500/40" />
-    {/* Cheese */}
-    <div className="h-3 bg-gradient-to-b from-yellow-500/60 to-yellow-400/50 animate-[melt_3s_ease-in-out_infinite]" />
-    {/* Patty */}
-    <div className="h-10 bg-gradient-to-b from-stone-800/50 to-stone-700/40" />
-    {/* Cheese */}
-    <div className="h-3 bg-gradient-to-b from-yellow-400/50 to-yellow-500/60 animate-[melt_3s_ease-in-out_infinite_0.5s]" />
-    {/* Patty */}
-    <div className="h-10 bg-gradient-to-b from-stone-700/40 to-stone-800/50" />
-    {/* Tomato */}
-    <div className="h-4 bg-gradient-to-b from-red-500/40 to-red-600/50" />
-    {/* Lettuce */}
-    <div className="h-3 bg-gradient-to-b from-green-500/30 to-green-600/40" />
-    {/* Bun bottom */}
-    <div className="h-8 bg-gradient-to-t from-amber-700/40 to-amber-600/30 rounded-r-full -mt-1" style={{ marginLeft: side === 'left' ? 0 : 'auto', marginRight: side === 'right' ? 0 : 'auto' }} />
+// Retro checkered pattern
+const CheckeredPattern = ({ side }: { side: 'left' | 'right' }) => (
+  <div 
+    className={`absolute ${side}-0 top-0 bottom-0 w-12 md:w-20 pointer-events-none hidden lg:block opacity-30`}
+    style={{
+      background: `repeating-conic-gradient(
+        from 0deg,
+        hsl(var(--foreground) / 0.15) 0deg 90deg,
+        transparent 90deg 180deg
+      )`,
+      backgroundSize: '20px 20px',
+    }}
+  />
+);
+
+// Neon tube light
+const NeonTube = ({ side }: { side: 'left' | 'right' }) => (
+  <div className={`absolute ${side === 'left' ? 'left-16 md:left-24' : 'right-16 md:right-24'} top-8 bottom-8 w-1 pointer-events-none hidden lg:block`}>
+    {/* Outer glow */}
+    <div className={`absolute inset-0 ${side === 'left' ? 'bg-primary' : 'bg-secondary'} blur-md opacity-60`} />
+    {/* Inner tube */}
+    <div className={`absolute inset-0 ${side === 'left' ? 'bg-primary' : 'bg-secondary'} rounded-full shadow-[0_0_10px_currentColor,0_0_20px_currentColor,0_0_40px_currentColor]`} />
+    {/* Bright center */}
+    <div className="absolute inset-x-0 top-0 bottom-0 mx-auto w-0.5 bg-white/80 rounded-full" />
+    
+    {/* End caps */}
+    <div className={`absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-2 rounded-t-full bg-zinc-400 border border-zinc-500`} />
+    <div className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-2 rounded-b-full bg-zinc-400 border border-zinc-500`} />
   </div>
 );
 
-// Pizza slice pattern
-const PizzaSlices = ({ side }: { side: 'left' | 'right' }) => (
-  <div className={`absolute ${side === 'left' ? 'left-14 md:left-20' : 'right-14 md:right-20'} top-1/2 -translate-y-1/2 pointer-events-none hidden lg:block`}>
-    <div className="relative w-24 h-24">
-      {[0, 1, 2].map((i) => (
+// Retro starburst decoration
+const Starburst = ({ className, color }: { className: string; color: string }) => (
+  <div className={`absolute pointer-events-none hidden lg:block ${className}`}>
+    <div className="relative w-8 h-8">
+      {[0, 45, 90, 135].map((rotation) => (
         <div
-          key={i}
-          className="absolute inset-0 border-l-2 border-t-2 border-primary/20 origin-bottom-right"
+          key={rotation}
+          className={`absolute inset-0 ${color}`}
           style={{
-            transform: `rotate(${i * 30 + (side === 'left' ? 0 : 180)}deg)`,
-            clipPath: 'polygon(50% 50%, 100% 0, 100% 100%)',
+            clipPath: 'polygon(50% 0%, 45% 45%, 0% 50%, 45% 55%, 50% 100%, 55% 55%, 100% 50%, 55% 45%)',
+            transform: `rotate(${rotation}deg)`,
+            opacity: rotation === 0 ? 1 : 0.5,
           }}
         />
       ))}
-      {/* Pepperoni dots */}
-      <div className="absolute top-4 left-8 size-2 rounded-full bg-primary/30 animate-pulse" />
-      <div className="absolute top-10 left-4 size-1.5 rounded-full bg-primary/25 animate-pulse" style={{ animationDelay: '0.5s' }} />
-      <div className="absolute top-6 left-12 size-1.5 rounded-full bg-primary/20 animate-pulse" style={{ animationDelay: '1s' }} />
     </div>
+  </div>
+);
+
+// Chrome stripe accent
+const ChromeStripe = ({ side }: { side: 'left' | 'right' }) => (
+  <div className={`absolute ${side === 'left' ? 'left-10 md:left-16' : 'right-10 md:right-16'} top-1/4 bottom-1/4 w-2 pointer-events-none hidden lg:block rounded-full overflow-hidden`}>
+    <div className="absolute inset-0 bg-gradient-to-b from-zinc-300 via-zinc-100 to-zinc-400" />
+    <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white/50 to-transparent" />
   </div>
 );
 
 const BurgerCombos = () => {
   return (
-    <section className="py-10 px-4 md:px-10 bg-card border-y border-border relative overflow-hidden">
-      {/* Central warm radial glow */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-radial from-primary/10 via-secondary/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+    <section className="py-10 px-4 md:px-10 bg-card border-y-4 border-primary/30 relative overflow-hidden">
+      {/* Retro gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-card via-background/50 to-card pointer-events-none" />
       
-      {/* Ingredient layers on sides */}
-      <IngredientLayers side="left" />
-      <IngredientLayers side="right" />
+      {/* Checkered patterns */}
+      <CheckeredPattern side="left" />
+      <CheckeredPattern side="right" />
       
-      {/* Pizza slice patterns */}
-      <PizzaSlices side="left" />
-      <PizzaSlices side="right" />
+      {/* Neon tubes */}
+      <NeonTube side="left" />
+      <NeonTube side="right" />
       
-      {/* Floating seasoning particles */}
-      <div className="absolute left-28 top-1/4 size-1 rounded-full bg-green-600/40 animate-[float_4s_ease-in-out_infinite] hidden lg:block" />
-      <div className="absolute left-32 top-1/2 size-0.5 rounded-full bg-red-500/50 animate-[float_3s_ease-in-out_infinite_0.5s] hidden lg:block" />
-      <div className="absolute left-24 bottom-1/3 size-1 rounded-full bg-secondary/40 animate-[float_3.5s_ease-in-out_infinite_1s] hidden lg:block" />
+      {/* Chrome stripes */}
+      <ChromeStripe side="left" />
+      <ChromeStripe side="right" />
       
-      <div className="absolute right-28 top-1/3 size-0.5 rounded-full bg-green-500/40 animate-[float_3.5s_ease-in-out_infinite_0.3s] hidden lg:block" />
-      <div className="absolute right-32 top-2/3 size-1 rounded-full bg-primary/30 animate-[float_4s_ease-in-out_infinite_0.8s] hidden lg:block" />
-      <div className="absolute right-24 bottom-1/4 size-0.5 rounded-full bg-secondary/50 animate-[float_3s_ease-in-out_infinite_1.2s] hidden lg:block" />
+      {/* Retro starbursts */}
+      <Starburst className="left-20 md:left-32 top-12" color="bg-secondary/40" />
+      <Starburst className="left-28 md:left-40 bottom-16" color="bg-primary/30" />
+      <Starburst className="right-20 md:right-32 top-20" color="bg-primary/40" />
+      <Starburst className="right-28 md:right-40 bottom-12" color="bg-secondary/30" />
 
       <div className="max-w-[1200px] mx-auto relative z-10">
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="h-0.5 w-12 bg-gradient-to-r from-transparent to-primary/50 rounded-full" />
-          <h2 className="text-foreground text-2xl md:text-3xl font-bold text-center">
-            Burgers and Footlongs
-          </h2>
-          <div className="h-0.5 w-12 bg-gradient-to-l from-transparent to-primary/50 rounded-full" />
+        {/* Retro-style title */}
+        <div className="text-center mb-8">
+          <div className="inline-block relative">
+            <h2 className="text-foreground text-2xl md:text-3xl font-bold px-6 py-2 relative">
+              <span className="relative z-10">Burgers and Footlongs</span>
+            </h2>
+            {/* Retro underline */}
+            <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+            <div className="absolute -bottom-2 left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-secondary to-transparent" />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
           {items.map((item, index) => (
             <article 
               key={item.name}
-              className="flex flex-col bg-background rounded-xl overflow-hidden border border-border shadow-lg transition-all hover:scale-[1.02] group relative"
+              className="flex flex-col bg-background rounded-2xl overflow-hidden shadow-lg transition-all hover:scale-[1.02] group relative border-2 border-zinc-700 hover:border-primary/50"
             >
-              {/* Ingredient-inspired top border */}
-              <div className="absolute top-0 inset-x-0 h-1 flex">
-                <div className="flex-1 bg-amber-600/60" />
-                <div className="flex-1 bg-green-600/60" />
-                <div className="flex-1 bg-primary/60" />
-                <div className="flex-1 bg-secondary/60" />
-                <div className="flex-1 bg-amber-600/60" />
+              {/* Chrome top bar */}
+              <div className="h-2 bg-gradient-to-r from-zinc-500 via-zinc-300 to-zinc-500 relative">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
               </div>
               
-              <div className="aspect-square w-full bg-gradient-to-b from-muted/20 to-muted/40 flex items-center justify-center p-4 relative overflow-hidden mt-1">
+              <div className="aspect-square w-full bg-gradient-to-br from-muted/30 via-muted/10 to-muted/30 flex items-center justify-center p-4 relative overflow-hidden">
+                {/* Retro circle accent */}
+                <div className="absolute inset-4 rounded-full border-2 border-dashed border-foreground/10 animate-[rotate-slow_30s_linear_infinite]" />
+                
                 <img 
                   src={item.image}
                   alt={item.name}
-                  className="h-full w-full object-contain drop-shadow-md group-hover:drop-shadow-2xl group-hover:scale-105 transition-all duration-300"
+                  className="h-full w-full object-contain drop-shadow-md group-hover:drop-shadow-2xl group-hover:scale-105 transition-all duration-300 relative z-10"
                   loading="lazy"
                   decoding="async"
                 />
               </div>
-              <div className="p-4 flex flex-col bg-gradient-to-t from-background to-transparent">
+              
+              <div className="p-4 flex flex-col border-t-2 border-zinc-700">
                 <h3 className="text-foreground text-lg font-bold mb-1">{item.name}</h3>
                 <p className="text-muted-foreground text-xs mb-3">{item.description}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-foreground text-lg font-black">{item.price}</span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-primary text-lg font-black">{item.price}</span>
+                  </div>
                   <button 
-                    className="size-8 rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground flex items-center justify-center transition-transform hover:scale-110" 
+                    className="size-9 rounded-full bg-gradient-to-b from-zinc-300 via-zinc-100 to-zinc-400 text-zinc-800 flex items-center justify-center transition-all hover:from-primary hover:via-primary hover:to-primary/80 hover:text-primary-foreground shadow-md" 
                     aria-label={`View ${item.name}`}
                   >
-                    <Plus className="size-4" />
+                    <Plus className="size-4" strokeWidth={3} />
                   </button>
                 </div>
+              </div>
+              
+              {/* Chrome bottom bar */}
+              <div className="h-1.5 bg-gradient-to-r from-zinc-500 via-zinc-300 to-zinc-500 relative">
+                <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
               </div>
             </article>
           ))}
