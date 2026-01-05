@@ -4,21 +4,21 @@ const testimonials = [
   {
     rating: 5,
     text: "Best pizza in the city, hands down. The crust is perfectly crispy and the toppings are always fresh. Delivery was super fast too!",
-    name: "Sarah M.",
+    name: "Lerato M.",
     role: "Loyal Customer",
     avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDh8o7BD8B65uqajOQO0Z-3CxONz9rSgc8YAIDAkaUi3M0gwHRESj9U8NIAM4eVs_R5P2-NztTazRzoBG6oAw5aLArDZQ7Hv6OAM-FzAccnIJdoy6vnTr2Q3V4AWd4ym8p78c44cMeqNYlskn_PxhSBfyMTPuVvxKDlEygN3cAQ3sczvSkZ4j9r-y2J8698ug3pjc7IhjQtUElnWzKz6hCF4qyMKkuI5nkG6VtAHi81imoIGtd9N_CnpYNTbm1HJ_HvINSaMGZ0zQ8"
   },
   {
     rating: 5,
     text: "The spicy wings are a game changer. I order the combo every Friday night. Highly recommend the Sizzle N Slice special!",
-    name: "Mike T.",
+    name: "Thabo N.",
     role: "Wing Enthusiast",
     avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuCPkYMkJtuOczeLIEH4RfT8-KOGoUi_7s-qpTGEWYLBSxw5FGrjnF_epylESYV-aYAnUEtAX3fvDGE8fUMXbYLUXxf0jptEZ1Wh9_3HkE2OxcleIGg3GlORUICSoPvN4xgQl-ghECsIJiU8wfAD1ky2sAmPO4xJr-OpFTM0bfFfcsnZgxFS0phKHFqigAEZmV0tV6D9NAuYqI0g-UNsNH9AbvR8L-EkE26UCCMiiOymqABT7_2R16xLFV4Z7HcYk-TfD5-sLf1ecPo"
   },
   {
     rating: 4.5,
     text: "Great atmosphere in the shop and even better food. The staff is friendly and the rewards program is actually worth it.",
-    name: "Emily R.",
+    name: "Naledi V.",
     role: "Foodie",
     avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuC4WkbUR-oAuk5MmRYJ4boIgphkIdB4z8TXZbSqLMhmBBJQM0OJWSeBc99u2PfOcpOeMMJpkG4ad4FuxQvpuyZnMddeFUUzdh_1p4NVJMD_mJ8y2sTPpBtSw-0Ss2Vr9xdTn7lrMTBs4z7Ku4SY5--ynS9Vd8l8gm88HlPlD4ggZiOtkq3_dtngYeLAnvBR0E69un9B3xmQsXPDLr-MxmFkW0ndn7IXLkTWani5mnPsDsfjLB2LtqWnUYfmrq_w5gyFEZxIXgr5w0I"
   }
