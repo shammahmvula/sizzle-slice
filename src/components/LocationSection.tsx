@@ -1,4 +1,5 @@
 import { MapPin, Phone, Clock } from "lucide-react";
+import LazyMap from "./LazyMap";
 
 const LocationSection = () => {
   return (
@@ -40,14 +41,10 @@ const LocationSection = () => {
         </div>
 
         <div className="md:col-span-2 bg-background rounded-xl overflow-hidden border border-border h-[400px] md:h-auto relative">
-          <iframe
+          <LazyMap
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.362153573887!2d28.312983076135293!3d-26.184883463391963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e953f60f6060c5b%3A0xc3034963f4568853!2sGlynwood%20Centre%2C%20Ampthill%20Ave%20%26%20Harrison%20St%2C%20Benoni%2C%201501%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1716383637402!5m2!1sen!2sus"
-            className="grayscale-map w-full h-full min-h-[300px]"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
             title="Sizzle N Slice Benoni Location"
+            className="w-full h-full"
           />
         </div>
       </div>

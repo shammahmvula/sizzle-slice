@@ -1,5 +1,5 @@
 import { Bike, UtensilsCrossed, Leaf, Flame, Sparkles } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import heroPizza from "@/assets/hero-pizza.jpg";
 
 const FloatingParticle = ({ delay, size, left, duration }: { delay: number; size: number; left: string; duration: number }) => (
@@ -31,16 +31,38 @@ const SparkElement = ({ delay, left, top }: { delay: number; left: string; top: 
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const imageRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
-    setIsLoaded(true);
+    // Preload the hero image
+    const img = new Image();
+    img.src = heroPizza;
+    img.onload = () => {
+      setImageLoaded(true);
+      setIsLoaded(true);
+    };
+    imageRef.current = img;
+    
+    // Fallback if image takes too long
+    const timeout = setTimeout(() => setIsLoaded(true), 1500);
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
     <header className="relative w-full min-h-[700px] md:min-h-[750px] flex items-center justify-center overflow-hidden">
+      {/* Skeleton placeholder */}
+      <div 
+        className={`absolute inset-0 z-0 bg-gradient-to-b from-muted via-muted/80 to-background transition-opacity duration-500 ${
+          imageLoaded ? 'opacity-0' : 'opacity-100'
+        }`}
+      />
+      
       {/* Animated Background */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-transform duration-[2s] ease-out will-change-transform"
+        className={`absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-all duration-[2s] ease-out will-change-transform ${
+          imageLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
         style={{
           backgroundImage: `linear-gradient(rgba(24, 17, 17, 0.3) 0%, rgba(24, 17, 17, 0.95) 100%), url("${heroPizza}")`,
           transform: isLoaded ? 'scale(1)' : 'scale(1.1)',
