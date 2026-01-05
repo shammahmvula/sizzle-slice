@@ -1,4 +1,5 @@
 import { Plus } from "lucide-react";
+import OptimizedImage from "./OptimizedImage";
 import burgersImage from "@/assets/burgers.png";
 import footlongsImage from "@/assets/footlongs.png";
 
@@ -175,12 +176,12 @@ const BurgerCombos = () => {
                 {/* Warm oven glow behind food */}
                 <div className="absolute inset-0 bg-gradient-radial from-orange-600/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 
-                <img 
+                <OptimizedImage
                   src={item.image}
                   alt={item.name}
-                  className="h-full w-full object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:drop-shadow-[0_4px_20px_rgba(251,146,60,0.3)] group-hover:scale-105 transition-all duration-300 relative z-10"
-                  loading="lazy"
-                  decoding="async"
+                  className="h-full w-full drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:drop-shadow-[0_4px_20px_rgba(251,146,60,0.3)] group-hover:scale-105 transition-all duration-300 relative z-10"
+                  aspectRatio="square"
+                  objectFit="contain"
                 />
               </div>
               

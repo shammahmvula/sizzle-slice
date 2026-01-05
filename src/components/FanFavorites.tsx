@@ -1,5 +1,6 @@
 import { Plus, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import OptimizedImage from "./OptimizedImage";
 import pizzaMexicana from "@/assets/pizza-mexicana.png";
 import pizzaHawaiian from "@/assets/pizza-hawaiian.png";
 import pizzaVegetarian from "@/assets/pizza-vegetarian.png";
@@ -60,16 +61,16 @@ const FanFavorites = () => {
         {pizzas.map((pizza) => (
           <div key={pizza.name} className="group menu-card">
             <div className="relative w-full aspect-square overflow-hidden">
-              <img 
+              <OptimizedImage
                 src={pizza.image}
                 alt={`${pizza.name} pizza`}
-                className="menu-card-image object-cover"
-                loading="lazy"
-                decoding="async"
-                fetchPriority={pizza.badge === "Best Seller" ? "high" : "low"}
+                className="menu-card-image w-full h-full"
+                priority={pizza.badge === "Best Seller"}
+                aspectRatio="square"
+                objectFit="cover"
               />
               {pizza.badge && (
-                <div className={`absolute top-3 right-3 ${pizza.badgeColor} text-xs font-bold px-2 py-1 rounded`}>
+                <div className={`absolute top-3 right-3 ${pizza.badgeColor} text-xs font-bold px-2 py-1 rounded z-10`}>
                   {pizza.badge}
                 </div>
               )}
