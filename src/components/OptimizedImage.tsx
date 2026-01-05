@@ -27,24 +27,42 @@ const OptimizedImage = ({
       return;
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
+    // Use requestIdleCallback for non-priority images to avoid blocking main thread
+    const setupObserver = () => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            observer.disconnect();
+          }
+        },
+        {
+          rootMargin: "300px", // Increased rootMargin for mobile - start loading earlier
+          threshold: 0,
         }
-      },
-      {
-        rootMargin: "200px", // Start loading 200px before entering viewport
-        threshold: 0,
+      );
+
+      if (imgRef.current) {
+        observer.observe(imgRef.current);
       }
-    );
 
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
+      return observer;
+    };
+
+    let observer: IntersectionObserver | null = null;
+    
+    if ('requestIdleCallback' in window) {
+      const idleId = requestIdleCallback(() => {
+        observer = setupObserver();
+      });
+      return () => {
+        cancelIdleCallback(idleId);
+        observer?.disconnect();
+      };
+    } else {
+      observer = setupObserver();
+      return () => observer?.disconnect();
     }
-
-    return () => observer.disconnect();
   }, [priority]);
 
   const aspectClass = {
