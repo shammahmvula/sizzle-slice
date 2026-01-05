@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 interface OptimizedImageProps {
   src: string;
@@ -18,52 +18,7 @@ const OptimizedImage = ({
   objectFit = "cover",
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(priority);
-  const imgRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (priority) {
-      setIsInView(true);
-      return;
-    }
-
-    // Use requestIdleCallback for non-priority images to avoid blocking main thread
-    const setupObserver = () => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setIsInView(true);
-            observer.disconnect();
-          }
-        },
-        {
-          rootMargin: "300px", // Increased rootMargin for mobile - start loading earlier
-          threshold: 0,
-        }
-      );
-
-      if (imgRef.current) {
-        observer.observe(imgRef.current);
-      }
-
-      return observer;
-    };
-
-    let observer: IntersectionObserver | null = null;
-    
-    if ('requestIdleCallback' in window) {
-      const idleId = requestIdleCallback(() => {
-        observer = setupObserver();
-      });
-      return () => {
-        cancelIdleCallback(idleId);
-        observer?.disconnect();
-      };
-    } else {
-      observer = setupObserver();
-      return () => observer?.disconnect();
-    }
-  }, [priority]);
+  const [hasError, setHasError] = useState(false);
 
   const aspectClass = {
     square: "aspect-square",
@@ -71,32 +26,42 @@ const OptimizedImage = ({
     auto: "",
   }[aspectRatio];
 
-  return (
-    <div
-      ref={imgRef}
-      className={`relative overflow-hidden ${aspectClass} ${className}`}
-    >
-      {/* Skeleton placeholder */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-r from-muted via-muted/80 to-muted animate-pulse transition-opacity duration-500 ${
-          isLoaded ? "opacity-0" : "opacity-100"
-        }`}
-      />
+  const handleLoad = () => {
+    setIsLoaded(true);
+  };
 
-      {/* Actual image - only render when in view */}
-      {isInView && (
-        <img
-          src={src}
-          alt={alt}
-          className={`w-full h-full transition-opacity duration-500 ${
-            isLoaded ? "opacity-100" : "opacity-0"
-          } object-${objectFit}`}
-          onLoad={() => setIsLoaded(true)}
-          loading={priority ? "eager" : "lazy"}
-          decoding="async"
-          fetchPriority={priority ? "high" : "low"}
-        />
+  const handleError = () => {
+    setHasError(true);
+    setIsLoaded(true); // Hide skeleton on error too
+  };
+
+  return (
+    <div className={`relative overflow-hidden ${aspectClass} ${className}`}>
+      {/* Static placeholder - no animation */}
+      {!isLoaded && !hasError && (
+        <div className="absolute inset-0 bg-muted/50" />
       )}
+
+      {/* Error state */}
+      {hasError && (
+        <div className="absolute inset-0 bg-muted/30 flex items-center justify-center">
+          <span className="text-muted-foreground text-xs">Image unavailable</span>
+        </div>
+      )}
+
+      {/* Image - always render, let browser handle loading */}
+      <img
+        src={src}
+        alt={alt}
+        className={`w-full h-full transition-opacity duration-300 ${
+          isLoaded && !hasError ? "opacity-100" : "opacity-0"
+        } object-${objectFit}`}
+        onLoad={handleLoad}
+        onError={handleError}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        fetchPriority={priority ? "high" : "low"}
+      />
     </div>
   );
 };
